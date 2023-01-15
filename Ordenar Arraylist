@@ -1,0 +1,118 @@
+package com.pruebasado.ordenararraylist;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+
+public class OrdenarArrayList {
+
+    private static ArrayList<Puntuacion> puntuaciones = new ArrayList<>();
+
+    public static void main(String args[]) {
+
+        // Guardo datos en el ArrayList de Objetos de la clase puntuacion
+        
+        puntuaciones.add(new Puntuacion("Ado", 28));
+        puntuaciones.add(new Puntuacion("Mery", 32));
+        puntuaciones.add(new Puntuacion("Paco", 40));
+        puntuaciones.add(new Puntuacion("Lola", 20));
+        puntuaciones.add(new Puntuacion("Jose", 28));
+        puntuaciones.add(new Puntuacion("Dani", 24));
+        puntuaciones.add(new Puntuacion("Sara", 36));
+        puntuaciones.add(new Puntuacion("Susi", 24));
+
+        
+        
+        // Imprimo el ArrayList desordenado por edad de la clase persona
+        
+        System.out.println("\nArrayList desordenada");
+        printArrayListPuntuacion();
+        
+        
+        
+
+        // Odeno el arrayList de menor a mayor y lo imprimo      
+
+        System.out.println("\nArrayList ordenado por puntuaciÃ³n de menor a mayor:");
+        
+        Collections.sort(puntuaciones, new Comparator<Puntuacion>() {
+            @Override
+            public int compare(Puntuacion p1, Puntuacion p2) {
+                return new Integer(p1.getPuntos()).compareTo(new Integer(p2.getPuntos()));
+            }
+        });
+        printArrayListPuntuacion();
+        
+
+        
+        // Odeno el arrayList de mayor a menor y lo imprimo
+
+        System.out.println("\nArrayList ordenado por puntuaciÃ³n de menor a mayor:");
+        Collections.sort(puntuaciones, new Comparator<Puntuacion>() {
+            @Override
+            public int compare(Puntuacion p1, Puntuacion p2) {
+                return new Integer(p2.getPuntos()).compareTo(new Integer(p1.getPuntos()));
+            }
+        });
+        printArrayListPuntuacion();
+
+    }
+
+
+
+    
+    private static void printArrayListPuntuacion() {
+        Iterator<Puntuacion> itrArrayList = puntuaciones.iterator();
+        int posicion = 1;
+        while (itrArrayList.hasNext()) {
+            System.out.println("Posicion(" + posicion + ") = " + itrArrayList.next().toString());
+            posicion++;
+        }
+    }
+
+}
+
+
+
+
+
+
+
+class Puntuacion {
+    private String nombre;
+    private int puntos;
+
+    public Puntuacion() {
+    }
+    
+    public Puntuacion(String nombre, int puntos) {
+        this.nombre = nombre;
+        this.puntos = puntos;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getPuntos() {
+        return puntos;
+    }
+
+    public void setPuntos(int puntos) {
+        this.puntos = puntos;
+    }
+
+    @Override
+    public String toString() {
+        return this.getNombre() + "  -  " + this.getPuntos();
+    }
+    
+    
+    
+    
+}
