@@ -11,7 +11,7 @@ public class OrdenarArrayList {
 
     public static void main(String args[]) {
 
-        // Guardo datos en el ArrayList de Objetos de la clase puntuacion
+        // Guardo datos en el ArrayList de Objetos de la clase puntuación
         
         puntuaciones.add(new Puntuacion("Ado", 28));
         puntuaciones.add(new Puntuacion("Mery", 32));
@@ -24,7 +24,7 @@ public class OrdenarArrayList {
 
         
         
-        // Imprimo el ArrayList desordenado por edad de la clase persona
+        // Imprimo el ArrayList desordenado por edad de la clase puntuación
         
         System.out.println("\nArrayList desordenada");
         printArrayListPuntuacion();
@@ -34,7 +34,7 @@ public class OrdenarArrayList {
 
         // Odeno el arrayList de menor a mayor y lo imprimo      
 
-        System.out.println("\nArrayList ordenado por puntuaciÃ³n de menor a mayor:");
+        System.out.println("\nArrayList ordenado por puntuación de menor a mayor:");
         
         Collections.sort(puntuaciones, new Comparator<Puntuacion>() {
             @Override
@@ -48,7 +48,7 @@ public class OrdenarArrayList {
         
         // Odeno el arrayList de mayor a menor y lo imprimo
 
-        System.out.println("\nArrayList ordenado por puntuaciÃ³n de menor a mayor:");
+        System.out.println("\nArrayList ordenado por puntuación de menor a mayor:");
         Collections.sort(puntuaciones, new Comparator<Puntuacion>() {
             @Override
             public int compare(Puntuacion p1, Puntuacion p2) {
